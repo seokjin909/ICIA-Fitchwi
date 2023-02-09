@@ -37,7 +37,7 @@ function App() {
     const profileImg = sessionStorage.getItem("profileImg");
     const mbti = sessionStorage.getItem("mbti");
     ChannelService.boot({
-      pluginKey: "261174a2-5819-4674-be05-d9bb582cd3b9",
+      pluginKey: "70f74bed-a108-43f0-afd4-061f39c22670",
       memberId: id,
       profile: {
         name: nickName,
@@ -57,10 +57,8 @@ function App() {
     }
   }, []);
 
-
   //로그인 성공 시 로그인 상태 변경 함수
   const sucLogin = useCallback((id, nickName, profileImg, mbti) => {
-
     const newState = {
       logid: id,
       nickName: nickName,

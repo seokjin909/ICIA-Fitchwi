@@ -102,40 +102,37 @@ export default function UserInfo({ onChange, joinForm, setJoinForm, isKakao, swA
     if (joinForm.memberPhone === "") {
       return swAlert("연락처를 입력해주세요.", "warning");
     }
-    axios
-      .post("/checkPhone", joinForm.memberPhone, { headers: { "Content-Type": "test/plain" } })
-      .then((result) => {
-        if (result.data === "fail") {
-          swAlert("이미 등록된 전화번호입니다.", "warning");
-        } else {
-          const { IMP } = window;
-          // IMP.init("imp51345423");
+    axios.post("/checkPhone", joinForm.memberPhone, { headers: { "Content-Type": "test/plain" } }).then((result) => {
+      if (result.data === "fail") {
+        swAlert("이미 등록된 전화번호입니다.", "warning");
+      } else {
+        const { IMP } = window;
+        // IMP.init("imp51345423");
+        IMP.init("imp10391932");
 
-          IMP.init("imp10391932");
+        const data = {
+          merchant_uid: `mid_${new Date().getTime()}`,
+          company: "아임포트",
+          carrier: "",
+          //name: joinForm.memberName,
+          phone: joinForm.memberPhone,
+        };
+        IMP.certification(data, callback);
 
-          const data = {
-            merchant_uid: `mid_${new Date().getTime()}`,
-            company: "아임포트",
-            carrier: "",
-            //name: joinForm.memberName,
-            phone: joinForm.memberPhone,
-          };
-          IMP.certification(data, callback);
+        function callback(response) {
+          // eslint-disable-next-line no-unused-vars
+          const { success, merchant_uid, error_msg } = response;
 
-          function callback(response) {
-            // eslint-disable-next-line no-unused-vars
-            const { success, merchant_uid, error_msg } = response;
+          if (success) {
+            setCheckedPhone(joinForm.memberPhone);
 
-            if (success) {
-              setCheckedPhone(joinForm.memberPhone);
-
-              swAlert("본인인증이 완료됐습니다.");
-            } else {
-              swAlert(`본인인증에 실패했습니다.<br/>: ${error_msg}`, "warning");
-            }
+            swAlert("본인인증이 완료됐습니다.");
+          } else {
+            swAlert(`본인인증에 실패했습니다.<br/>: ${error_msg}`, "warning");
           }
         }
-      });
+      }
+    });
   };
 
   const handlePhoneNumber = (e) => {
@@ -172,13 +169,7 @@ export default function UserInfo({ onChange, joinForm, setJoinForm, isKakao, swA
         {isKakao === true ? null : (
           <>
             <Grid item xs={12}>
-              <Button
-                variant="outlined"
-                fullWidth
-                style={{ width: "100%" }}
-                sx={{ mb: 1 }}
-                onClick={onCheckId}
-              >
+              <Button variant="outlined" fullWidth style={{ width: "100%" }} sx={{ mb: 1 }} onClick={onCheckId}>
                 중복확인
               </Button>{" "}
             </Grid>

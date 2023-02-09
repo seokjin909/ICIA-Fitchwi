@@ -16,4 +16,5 @@ public class Tag {
 
     @Column(nullable = false, length = 100, unique=true)
     private String tagContent;
+
 }

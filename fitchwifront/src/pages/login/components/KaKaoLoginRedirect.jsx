@@ -19,9 +19,11 @@ const KaKaoLoginRedirect = ({ sucLogin, ...props }) => {
 
   useEffect(() => {
     let code = new URL(window.location.href).searchParams.get("code");
+    console.log(code);
 
     const kakaoLogin = async () => {
       await axios.get("/login/kakao/callback?", { params: { code: code } }).then((res) => {
+        console.log(res.data);
         // eslint-disable-next-line no-unused-vars
         const { isPresent, member } = res.data;
 
@@ -35,15 +37,12 @@ const KaKaoLoginRedirect = ({ sucLogin, ...props }) => {
                 sessionStorage.setItem("classification", "k");
                 sessionStorage.setItem("mbti", res.data.mbti);
                 sessionStorage.setItem("profileImg", res.data.profileImg);
-                swAlert(res.data.memberNickname + "님 환영합니다.", "success", () =>
-                  nav("/", { replace: true })
-                );
+                swAlert(res.data.memberNickname + "님 환영합니다.", "success", () => nav("/", { replace: true }));
 
                 break;
               case "reported":
                 swAlert(
-                  "누적된 신고에 의해, <br/> FITCHWI 이용이 불가합니다.<br/> 제한 해지일 :" +
-                    res.data.memberRestriction,
+                  "누적된 신고에 의해, <br/> FITCHWI 이용이 불가합니다.<br/> 제한 해지일 :" + res.data.memberRestriction,
                   "warning",
                   () => nav("/", { replace: true })
                 );

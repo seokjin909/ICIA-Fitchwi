@@ -467,7 +467,7 @@ public class MemberService {
 
     MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
     body.add("grant_type", "authorization_code");
-    body.add("client_id", "bad1b060092a0ed86a3dfe34c2fb99f9");
+    body.add("client_id", "98a4f1dff9d8c014b533affefb05d4ed");
     body.add("redirect_uri", "http://localhost:3000/login/kakao/callback");
     body.add("code", code);
 

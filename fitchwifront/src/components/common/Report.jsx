@@ -82,9 +82,7 @@ export default function Report({ targetMember, target, category, type }) {
 
     axios.post("/report", reportForm).then((result) => {
       if (result.data === "ok") {
-        swAlert(
-          "신고 접수가 완료됐습니다. <br/>소중한 의견 감사드리며,  <br/>더욱 건강한 FITCHWI가 되도록 노력하겠습니다."
-        );
+        swAlert("신고 접수가 완료됐습니다. <br/>소중한 의견 감사드리며,  <br/>더욱 건강한 FITCHWI가 되도록 노력하겠습니다.");
       } else {
         swAlert("신고 접수가 정상적으로 처리되지 않았습니다. <br/>잠시 후 다시 시도해주세요.", "warning");
       }
@@ -165,8 +163,7 @@ export default function Report({ targetMember, target, category, type }) {
                 이미 신고한 대상입니다.
               </DialogContentText>
               <DialogContentText color="black" mt={2}>
-                회원님의 소중한 의견을 주셔서 감사합니다. 빠른 시일 내, 신고내역을 검토한 뒤 적절한 조치를
-                취하도록 하겠습니다.
+                회원님의 소중한 의견을 주셔서 감사합니다. 빠른 시일 내, 신고내역을 검토한 뒤 적절한 조치를 취하도록 하겠습니다.
               </DialogContentText>
             </DialogContent>
             <DialogActions>
