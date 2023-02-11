@@ -57,8 +57,7 @@ export default function Login({ sucLogin, swAlert }) {
             break;
           case "reported":
             swAlert(
-              "누적된 신고에 의해, <br/> FITCHWI 이용이 불가합니다.<br/> 제한 해지일 : " +
-                res.data.memberRestriction,
+              "누적된 신고에 의해, <br/> FITCHWI 이용이 불가합니다.<br/> 제한 해지일 : " + res.data.memberRestriction,
               "warning",
               () => {
                 nav("/", { replace: true });
@@ -157,9 +156,9 @@ export default function Login({ sucLogin, swAlert }) {
             </Grid>
           </Grid>
         </Box>
-        {/* <Button fullWidth variant="outlined" sx={{ mt: 3, mb: 2 }} onClick={() => createMemeber()}>
+        <Button fullWidth variant="outlined" sx={{ mt: 3, mb: 2 }} onClick={() => createMemeber()}>
           테스트계정생성
-        </Button> */}
+        </Button>
       </Container>
     </>
   );

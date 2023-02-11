@@ -441,8 +441,8 @@ public class TogetherService {
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         Map<String,String> body = new HashMap<>();
-            body.put("imp_key", "5177641603268324");
-            body.put("imp_secret", "8ECw03mlg2rRO9qJmHaWsQIiWGQDakmEkO9WvMaGV29EY01MWWt2AlQXr6A3Gu0VIEtFSMfVQaAReVf1");
+            body.put("imp_key", "5520466270865213");
+            body.put("imp_secret", "EPm1HQgwJYeNtL3MHJoZKO1Dms5DwnpqdJYYDuTyt8kxOeqdspEkh5c1fd5IYC66u1CNIzR9Sl94qxiy");
         try {
             HttpEntity<Map> tokenEntity = new HttpEntity<>(body,headers);
             ResponseEntity<Map> token = restTemplate.postForEntity("https://api.iamport.kr/users/getToken",tokenEntity,Map.class);
