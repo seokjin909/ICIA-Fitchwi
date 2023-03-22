@@ -130,5 +130,13 @@
     <li>결제 및 환불 서비스를 위해 아임포트(I,mport)를 연동시켰음</li>
 </ul>
 
+<h4>메인페이지</h4>
+
+<img width="1440" alt="스크린샷 2023-03-22 오후 3 19 10" src="https://user-images.githubusercontent.com/111734939/226820916-2be00a58-4757-44f0-abb9-a3c96c5ee38b.png">
+
+
+<h4>공유해요</h4>
+
+<img width="1440" alt="스크린샷 2023-03-22 오후 3 26 35" src="https://user-images.githubusercontent.com/111734939/226820019-7c1bb1a9-053d-43d2-8d3a-fafb7774b134.png">
 
 
